@@ -87,15 +87,15 @@ namespace LingoLearner
                 "Hello world is an overly used phrase.", "Yes, it would be nice to learn German",
                 "Would you like to learn German?"));
 
-            qlist.Add(Question.makeQ("Sleep in a tree", "My dog snuggled my cat", "No, we didn't start the fire",
-                "Stretch, and brush my teeth", "What do you do when you wake up?"));
+            qlist.Add(Question.makeQ("Sleep in a tree.", "My dog snuggled my cat.", "No, we didn't start the fire.",
+                "Check my phone and brush my teeth.", "What do you do when you wake up?"));
 
-            qlist.Add(Question.makeQ("The earth is actually flat", "I don't have any pouridge", "I like to visit Canada",
-                "No, but I really want to visit Germany?", "Have you ever traveled to Germany before?"));
+            qlist.Add(Question.makeQ("The earth is actually flat.", "I don't have any pouridge.", "I like to visit Canada.",
+                "No, but I really want to visit Germany.", "Have you ever traveled to Germany before?"));
 
-            qlist.Add(Question.makeQ("There was also a partridge in a pear tree", "I can do backflips", 
-                "I hope to cross the road to get to the other side", "Yes, I did learn a little something", 
-                "Thank you for talkng with me today? I hope that you learned something today!"));
+            qlist.Add(Question.makeQ("There was also a partridge in a pear tree.", "I can do backflips.", 
+                "I hope to cross the road to get to the other side.", "Yes, I did learn a little something.", 
+                "Thank you for talkng with me today. I hope that you learned something today!"));
 
 
             return qlist;
