@@ -12,7 +12,6 @@ namespace LingoLearner
         string questionText;
         List<string> answerSet;
         KeyValuePair<string, bool> answerPair;
-        string dictionary;
 
         public string getQuestionText()
         {
@@ -29,11 +28,6 @@ namespace LingoLearner
             return this.answerPair;
         }
 
-        public string getDictionary()
-        {
-            return this.dictionary;
-        }
-
         public static Question makeQ(string s1, string s2, string s3, string answer, string question)
         {
             List<string> l = new List<string>();
@@ -42,7 +36,7 @@ namespace LingoLearner
             l.Add(s3);
             l.Add(answer);
             KeyValuePair<string, bool> kv = new KeyValuePair<string, bool>(answer, true);
-            Question q = new Question(question, l, kv, "german-english");
+            Question q = new Question(question, l, kv);
 
             return (q);
         }
@@ -53,16 +47,14 @@ namespace LingoLearner
             questionText = "";
             answerSet = new List<string>();
             answerPair = new KeyValuePair<string, bool>();
-            dictionary = "None";
         }
 
         // Constructor that takes one argument.
-        public Question(string quesitonText, List<string> answerSet, KeyValuePair<string, bool> answerPair, string dictionary)
+        public Question(string quesitonText, List<string> answerSet, KeyValuePair<string, bool> answerPair)
         {
             this.questionText = quesitonText;
             this.answerSet = answerSet;
             this.answerPair = answerPair;
-            this.dictionary = dictionary;
         }
 
         // Method
