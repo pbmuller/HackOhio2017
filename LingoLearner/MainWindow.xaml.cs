@@ -20,13 +20,17 @@ namespace LingoLearner
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+       
+        public string ans;
         public MainWindow()
         {
-
+            
             List<Question> questions = makeQuestions();
             InitializeComponent();
             Question q = questions.ElementAt(0);
+            if (q.getAnswerPair().Key == ans) {
+                //update answer key
+            }
             setUI(q);
             
 
@@ -34,22 +38,22 @@ namespace LingoLearner
 
         private void A1_Click(object sender, RoutedEventArgs e)
         {
-            qbox.Text = "A1";
+            ans = A1.Content.ToString();
         }
 
         private void A2_Click(object sender, RoutedEventArgs e)
         {
-            qbox.Text = "A2";
+            ans = A2.Content.ToString();
         }
 
         private void A3_Click(object sender, RoutedEventArgs e)
         {
-            qbox.Text = "A3";
+            ans = A3.Content.ToString();
         }
 
         private void A4_Click(object sender, RoutedEventArgs e)
         {
-            qbox.Text = "A4";
+            ans = A4.Content.ToString();
         }
 
         public static List<Question> makeQuestions()
