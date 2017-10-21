@@ -19,11 +19,11 @@ namespace LingoLearner
             this.words.Add("bin", "am");
             this.words.Add("ein", "a");
             this.words.Add("Kirchkrapfen", "cherry_doughnut");
-            this.words.Add("die Bäume", "the_trees");
+            this.words.Add("die_Bäume", "the_trees");
             this.words.Add("sind", "and");
             this.words.Add("auf", "on");
             this.words.Add("Feuer", "fire");
-            this.words.Add("das Wetter", "the weather");
+            this.words.Add("das_Wetter", "the_weather");
             this.words.Add("im", "in");
             this.words.Add("Winter", "winter");
             this.words.Add("ist", "is");
@@ -33,7 +33,8 @@ namespace LingoLearner
             this.words.Add("Schmetterling", "Butterflies");
             this.words.Add("schön", "beautiful");
             this.words.Add("ja", "yes");
-            this.words.Add("Möchte", "would like");
+            this.words.Add("Möchte_du", "would_you_like");
+            this.words.Add("Möchte", "would_like");
             this.words.Add("haben", "to have");
             this.words.Add("Abendessen", "dinner");
             this.words.Add("ein", "an");
@@ -41,7 +42,7 @@ namespace LingoLearner
             this.words.Add("Phrase", "phrase");
             this.words.Add("es", "it");
             this.words.Add("wäre_nett", "Would_be_nice");
-            this.words.Add("lernen", "to learn");
+            this.words.Add("lernen", "to_learn");
             this.words.Add("Deutsch", "German");
             this.words.Add("schlaf", "sleep");
             this.words.Add("Baum", "tree");
