@@ -27,41 +27,60 @@ namespace LingoLearner
             
             List<Question> questions = makeQuestions();
             InitializeComponent();
-            Question q = questions.ElementAt(0);
-            if (q.getAnswerPair().Key == ans) {
-                qbox.Text = "win";
-            }
-            setUI(q);
-            
 
+            var rnd = new Random();
+            questions = questions.OrderBy(x => rnd.Next()).ToList();
+
+            Question q = questions.ElementAt(0);
+
+            ans = q.getAnswerPair().Key.ToString();
+            
+            setUI(q);
         }
 
         private void A1_Click(object sender, RoutedEventArgs e)
         {
-            ans = A1.Content.ToString();
+            
+            if (ans == A1.Content.ToString())
+            {
+                A1.Content = "win";
+
+            }
         }
 
         private void A2_Click(object sender, RoutedEventArgs e)
         {
-            ans = A2.Content.ToString();
+            if (ans == A2.Content.ToString())
+            {
+                A2.Content = "win";
+
+            }
         }
 
         private void A3_Click(object sender, RoutedEventArgs e)
         {
-            ans = A3.Content.ToString();
+            if (ans == A3.Content.ToString())
+            {
+                A3.Content = "win";
+
+            }
         }
 
         private void A4_Click(object sender, RoutedEventArgs e)
         {
-            ans = A4.Content.ToString();
+            if (ans == A4.Content.ToString())
+            {
+                A4.Content = "win";
+
+            }
         }
 
         public static List<Question> makeQuestions()
         {
             List<Question> qlist = new List<Question>();
 
-            qlist.Add(Question.makeQ("Hello, I am doing well.", "I am a cherry doughnut.",
-                "The trees are on fire.", "The weather in winter is cold.", 
+            qlist.Add(Question.makeQ("I am a cherry doughnut.","The trees are on fire.", 
+                "The weather in winter is cold.", "Hello, I am doing well.",
                 "Hello, how are you today?"));
 
             qlist.Add(Question.makeQ("Butterflies are beautiful.", "Yes, I would like to have dinner.",
