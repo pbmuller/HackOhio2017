@@ -58,11 +58,11 @@ namespace LingoLearner
         {
             List<Question> qlist = new List<Question>();
 
-            qlist.Add(makeQ("Hello, I am doing well.", "I am a cherry doughnut.",
+            qlist.Add(Question.makeQ("Hello, I am doing well.", "I am a cherry doughnut.",
                 "The trees are on fire.", "The weather in winter is cold.", 
                 "Hello, how are you today?"));
 
-            qlist.Add(makeQ("Butterflies are beautiful.", "Yes, I would like to have dinner.",
+            qlist.Add(Question.makeQ("Butterflies are beautiful.", "Yes, I would like to have dinner.",
                 "Hello world is an overly used phrase.", "Yes, it would be nice to learn German",
                 "Would you like to learn German?"));
 
@@ -70,6 +70,7 @@ namespace LingoLearner
             return qlist;
         }
 
+<<<<<<< HEAD
         public static Question makeQ (string s1, string s2, string s3, string answer, string question)
         {
             List <string> l =new  List<string>();
@@ -82,6 +83,8 @@ namespace LingoLearner
 
             return(q);
         }
+=======
+>>>>>>> 8b2c0ccdf5f75a89807803a6024bd88e6c805157
 
         public void setUI(Question q)
         {

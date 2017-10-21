@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LingoLearner
 {
-    public partial class Question
+    public class Question
     {
         // Field
         string questionText;
@@ -32,6 +32,19 @@ namespace LingoLearner
         public string getDictionary()
         {
             return this.dictionary;
+        }
+
+        public static Question makeQ(string s1, string s2, string s3, string answer, string question)
+        {
+            List<string> l = new List<string>();
+            l.Add(s1);
+            l.Add(s2);
+            l.Add(s3);
+            l.Add(answer);
+            KeyValuePair<string, bool> kv = new KeyValuePair<string, bool>(answer, true);
+            Question q = new Question(question, l, kv, "german-english");
+
+            return (q);
         }
 
         // Constructor that takes no arguments.
