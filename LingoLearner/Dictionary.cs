@@ -27,7 +27,7 @@ namespace LingoLearner
             this.words.Add("lernen", "learn");
             this.words.Add("Deutsch", "german");
             this.words.Add("zu", "to");
-            this.words.Add("spe")
+            this.words.Add("sprechen", "speak");
 
         }
 
