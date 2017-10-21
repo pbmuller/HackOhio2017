@@ -20,13 +20,15 @@ namespace LingoLearner
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+       
+        string ans;
         public MainWindow()
         {
-
+            
             List<Question> questions = makeQuestions();
             InitializeComponent();
             Question q = questions.ElementAt(0);
+            if (q.getAnswerPair().Key == ans) { }
             setUI(q);
             
 
@@ -34,22 +36,22 @@ namespace LingoLearner
 
         private void A1_Click(object sender, RoutedEventArgs e)
         {
-            qbox.Text = "A1";
+            ans = A1.Content.ToString();
         }
 
         private void A2_Click(object sender, RoutedEventArgs e)
         {
-            qbox.Text = "A2";
+            ans = A2.Content.ToString();
         }
 
         private void A3_Click(object sender, RoutedEventArgs e)
         {
-            qbox.Text = "A3";
+            ans = A3.Content.ToString();
         }
 
         private void A4_Click(object sender, RoutedEventArgs e)
         {
-            qbox.Text = "A4";
+            ans = A4.Content.ToString();
         }
 
         public static List<Question> makeQuestions()
@@ -75,7 +77,7 @@ namespace LingoLearner
             l.Add(s2);
             l.Add(s3);
             l.Add(answer);
-            KeyValuePair<string, bool> kv= new KeyValuePair<string, bool>(answer, true);
+            KeyValuePair<string, bool> kv = new KeyValuePair<string, bool>(answer, true);
             Question q = new Question(question, l, kv, "german-english");
 
             return(q);
