@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,11 +21,21 @@ namespace LingoLearner
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int lscore;
         public List<Question> questions = makeQuestions();
         public string ans;
         public MainWindow()
         {
-            
+            try
+            {
+                StreamReader sr = new StreamReader("lscore.txt");
+                lscore = Convert.ToInt32(sr.ReadLine());
+            }
+            catch(IOException e)
+            {
+                //You done fucked up
+                System.Windows.Application.Current.Shutdown();
+            }
             
             InitializeComponent();
 
@@ -43,7 +54,7 @@ namespace LingoLearner
             }
 
             setUI(q);
-
+            qbox.Text = lscore.ToString();
 
         }
 
