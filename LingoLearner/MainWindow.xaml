@@ -7,11 +7,12 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="668.969" Width="644.794" Background="Black">
+
     <Grid Margin="0,0,-7,-19.667" HorizontalAlignment="Stretch" Width="645" Height="659" VerticalAlignment="Stretch">
-        <Button x:Name="A1" Content="A1"  Foreground="ForestGreen" Margin="0,320,324,178" Click="A1_Click" FontFamily="Arial" FontSize="15" Background="{x:Null}"/>
-        <Button x:Name="A2" Content="A2"  Background="Black" Foreground="ForestGreen" Height="161" Margin="321,320,10,0" VerticalAlignment="Top" Click="A2_Click" FontFamily="Arial" FontSize="15"/>
-        <Button x:Name="A3" Content="A3"  Background="Black" Foreground="ForestGreen" HorizontalAlignment="Left" Height="161" Margin="0,481,0,0" VerticalAlignment="Top" Width="321" Click="A3_Click" FontFamily="Arial" FontSize="15"/>
-        <Button x:Name="A4" Content="A4"  Background="Black" Foreground="ForestGreen" Height="161" Margin="321,481,10,0" VerticalAlignment="Top" Click="A4_Click" FontFamily="Arial" FontSize="15"/>
+        <Button x:Name="A1" Content="A1"  Background="Black"  Foreground="ForestGreen" HorizontalAlignment="Stretch" Margin="0,320,324,178" Click="A1_Click" FontFamily="Arial" FontSize="15"/>
+        <Button x:Name="A2" Content="A2"  Background="Black" Foreground="ForestGreen" HorizontalAlignment="Stretch" Margin="321,320,10,0" Click="A2_Click" VerticalAlignment="Top" FontFamily="Arial" FontSize="15"/>
+        <Button x:Name="A3" Content="A3"  Background="Black" Foreground="ForestGreen" HorizontalAlignment="Stretch" Margin="0,481,324,17" Click="A3_Click" FontFamily="Arial" FontSize="15"/>
+        <Button x:Name="A4" Content="A4"  Background="Black" Foreground="ForestGreen" HorizontalAlignment="Stretch" Margin="321,481,10,0" Click="A4_Click" VerticalAlignment="Top" FontFamily="Arial" FontSize="15"/>
         <TextBlock x:Name="qbox" TextAlignment="Center" Foreground="ForestGreen" HorizontalAlignment="Stretch" Height="220" Margin="0,100,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="645"  FontFamily="Arial Black" FontSize="20"/>
 
     </Grid>
