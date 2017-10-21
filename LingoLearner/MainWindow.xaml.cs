@@ -34,7 +34,13 @@ namespace LingoLearner
 
             Question q = questions.ElementAt(0);
             questions.Remove(q);
-            ans = q.getAnswerPair().Key.ToString();
+            List<KeyValuePair<string, bool>> l = q.getAnswerSet();
+            foreach (KeyValuePair<string,bool>x in l){
+                if (x.Value)
+                {
+                    ans = x.Key;
+                }
+            }
 
             setUI(q);
 
@@ -109,21 +115,27 @@ namespace LingoLearner
 
             Question q = questions.ElementAt(0);
             questions.Remove(q);
-            ans = q.getAnswerPair().Key.ToString();
-
+            List<KeyValuePair<string, bool>> l = q.getAnswerSet();
+            foreach (KeyValuePair<string, bool> x in l)
+            {
+                if (x.Value)
+                {
+                    ans = x.Key;
+                }
+            }
             setUI(q);
         }
 
         public void setUI(Question q)
         {
             qbox.Text = q.getQuestionText();
-            List<string> l = q.getAnswerSet();
+            List<KeyValuePair<string, bool>> l = q.getAnswerSet();
             var rnd = new Random();
             l = l.OrderBy(x => rnd.Next()).ToList();
-            A1.Content = l.ElementAt(0);
-            A2.Content = l.ElementAt(1);
-            A3.Content = l.ElementAt(2);
-            A4.Content = l.ElementAt(3);
+            A1.Content = l.ElementAt(0).Key;
+            A2.Content = l.ElementAt(1).Key;
+            A3.Content = l.ElementAt(2).Key;
+            A4.Content = l.ElementAt(3).Key;
 
         }
     }
