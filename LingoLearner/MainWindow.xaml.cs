@@ -21,14 +21,16 @@ namespace LingoLearner
     public partial class MainWindow : Window
     {
        
-        string ans;
+        public string ans;
         public MainWindow()
         {
             
             List<Question> questions = makeQuestions();
             InitializeComponent();
             Question q = questions.ElementAt(0);
-            if (q.getAnswerPair().Key == ans) { }
+            if (q.getAnswerPair().Key == ans) {
+                //update answer key
+            }
             setUI(q);
             
 
@@ -70,21 +72,6 @@ namespace LingoLearner
             return qlist;
         }
 
-<<<<<<< HEAD
-        public static Question makeQ (string s1, string s2, string s3, string answer, string question)
-        {
-            List <string> l =new  List<string>();
-            l.Add(s1);
-            l.Add(s2);
-            l.Add(s3);
-            l.Add(answer);
-            KeyValuePair<string, bool> kv = new KeyValuePair<string, bool>(answer, true);
-            Question q = new Question(question, l, kv, "german-english");
-
-            return(q);
-        }
-=======
->>>>>>> 8b2c0ccdf5f75a89807803a6024bd88e6c805157
 
         public void setUI(Question q)
         {

@@ -42,7 +42,7 @@ namespace LingoLearner
             l.Add(s3);
             l.Add(answer);
             KeyValuePair<string, bool> kv = new KeyValuePair<string, bool>(answer, true);
-            Question q = new Question(question, l, kv, "german-english");
+            Question q = new Question(question, l, kv);
 
             return (q);
         }
