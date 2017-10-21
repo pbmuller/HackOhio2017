@@ -46,7 +46,7 @@ namespace LingoLearner
             
             if (ans == A1.Content.ToString())
             {
-                updateUI(questions);
+                updateUI();
             }
             
             
@@ -56,7 +56,7 @@ namespace LingoLearner
         {
             if (ans == A2.Content.ToString())
             {
-                updateUI(questions);
+                updateUI();
             }
         }
 
@@ -64,7 +64,7 @@ namespace LingoLearner
         {
             if (ans == A3.Content.ToString())
             {
-                updateUI(questions);
+                updateUI();
             }
         }
 
@@ -72,7 +72,7 @@ namespace LingoLearner
         {
             if (ans == A4.Content.ToString())
             {
-                updateUI(questions);
+                updateUI();
             }
         }
 
@@ -102,13 +102,15 @@ namespace LingoLearner
             return qlist;
         }
 
-        public void updateUI(List<Question> questions)
+        public void updateUI()
         {
             var rnd = new Random();
             questions = questions.OrderBy(x => rnd.Next()).ToList();
 
             Question q = questions.ElementAt(0);
             questions.Remove(q);
+            ans = q.getAnswerPair().Key.ToString();
+
             setUI(q);
         }
 

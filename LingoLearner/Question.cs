@@ -10,33 +10,26 @@ namespace LingoLearner
     {
         // Field
         string questionText;
-        List<string> answerSet;
-        KeyValuePair<string, bool> answerPair;
+        List<KeyValuePair<string, bool>> answerSet;
 
         public string getQuestionText()
         {
             return this.questionText;
         }
 
-        public List<string> getAnswerSet()
+        public List<KeyValuePair<string, bool>> getAnswerSet()
         {
             return this.answerSet;
         }
 
-        public KeyValuePair<string, bool> getAnswerPair()
-        {
-            return this.answerPair;
-        }
-
         public static Question makeQ(string s1, string s2, string s3, string answer, string question)
         {
-            List<string> l = new List<string>();
-            l.Add(s1);
-            l.Add(s2);
-            l.Add(s3);
-            l.Add(answer);
-            KeyValuePair<string, bool> kv = new KeyValuePair<string, bool>(answer, true);
-            Question q = new Question(question, l, kv);
+            List<KeyValuePair<string, bool>> list = new List<KeyValuePair<string, bool>>();
+            list.Add(new KeyValuePair<string, bool>(s1, false));
+            list.Add(new KeyValuePair<string, bool>(s2, false));
+            list.Add(new KeyValuePair<string, bool>(s3, false));
+            list.Add(new KeyValuePair<string, bool>(answer, true));
+            Question q = new Question(question, list);
 
             return (q);
         }
@@ -44,23 +37,16 @@ namespace LingoLearner
         // Constructor that takes no arguments.
         public Question()
         {
-            questionText = "";
-            answerSet = new List<string>();
-            answerPair = new KeyValuePair<string, bool>();
+            this.questionText = "";
+            this.answerSet = new List<KeyValuePair<string, bool>>();
         }
 
         // Constructor that takes one argument.
-        public Question(string quesitonText, List<string> answerSet, KeyValuePair<string, bool> answerPair)
+        public Question(string questionText, List<KeyValuePair<string, bool>> answerSet)
         {
-            this.questionText = quesitonText;
+            this.questionText = questionText;
             this.answerSet = answerSet;
-            this.answerPair = answerPair;
         }
 
-        // Method
-        public KeyValuePair<string, bool> SetRightWrong(KeyValuePair<String, bool> d, bool answer)
-        {
-            return new KeyValuePair<string, bool>(d.Key, answer);
-        }
     }
 }
