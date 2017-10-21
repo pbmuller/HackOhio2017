@@ -6,24 +6,29 @@ using System.Threading.Tasks;
 
 namespace LingoLearner
 {
-    public class Dictionary
+    public class GermanDictionary
     {
-        Dictionary<string, List<KeyValuePair<string, string>>> dictionaries;
+        Dictionary<string, string> words;
 
-        public Dictionary()
+        public GermanDictionary()
         {
-
+            
         }
 
-        public List<string> getDictionaries()
+        private void loadDictionaryd()
         {
-            return this.dictionaries.Keys.ToList();
-        }
+            this.words = new Dictionary<string, string>();
+            this.words.Add("hallo", "hello");
+            this.words.Add("wie", "how");
+            this.words.Add("bist", "are");
+            this.words.Add("heute", "today");
+            this.words.Add("du", "you");
+            this.words.Add("Möchtest_du", "would_you_like");
+            this.words.Add("lernen", "learn");
+            this.words.Add("Deutsch", "german");
+            this.words.Add("zu", "to");
+            this.words.Add("spe")
 
-        private void loadDictionaries()
-        {
-            this.dictionaries = new Dictionary<string, List<KeyValuePair<string, string>>>();
-            this.dictionaries.Add("german-english", german_english_wordlist());
         }
 
         private List<KeyValuePair<string, string>> german_english_wordlist()
