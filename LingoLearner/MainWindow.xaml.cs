@@ -28,13 +28,18 @@ namespace LingoLearner
         {
             try
             {
-                StreamReader sr = new StreamReader("lscore.txt");
+                StreamReader sr = new StreamReader("C:\\Users\\Jacob\\hackohio\\HackOhio2017\\lscore.txt");
                 lscore = Convert.ToInt32(sr.ReadLine());
             }
             catch(IOException e)
             {
-                //You done fucked up
-                System.Windows.Application.Current.Shutdown();
+                using (var tw = new StreamWriter("C:\\Users\\Jacob\\hackohio\\HackOhio2017\\lscore.txt", true))
+                {
+                    tw.WriteLine("0");
+                    tw.Close();
+                }
+
+                // System.Windows.Application.Current.Shutdown();
             }
             
             InitializeComponent();
@@ -64,11 +69,13 @@ namespace LingoLearner
             if (ans == A1.Content.ToString())
             {
                 setEnabled(A1, A2, A3, A4);
+                lscore += 5;
                 updateUI();
             }
             else
             {
                 A1.IsEnabled = false;
+                lscore -= 2;
             }
             
             
@@ -79,11 +86,13 @@ namespace LingoLearner
             if (ans == A2.Content.ToString())
             {
                 setEnabled(A1, A2, A3, A4);
+                lscore += 5;
                 updateUI();
             }
             else
             {
                 A2.IsEnabled = false;
+                lscore -= 2;
             }
         }
 
@@ -92,11 +101,14 @@ namespace LingoLearner
             if (ans == A3.Content.ToString())
             {
                 setEnabled(A1, A2, A3, A4);
+                lscore += 5;
                 updateUI();
+                
             }
             else
             {
                 A3.IsEnabled = false;
+                lscore -= 2;
             }
         }
 
@@ -105,13 +117,17 @@ namespace LingoLearner
             if (ans == A4.Content.ToString())
             {
                 setEnabled(A1, A2, A3, A4);
+                lscore += 5;
                 updateUI();
             }
             else
             {
                 A4.IsEnabled = false;
+                lscore -= 2;
             }
         }
+
+
 
         public static List<Question> makeQuestions()
         {
@@ -152,17 +168,41 @@ namespace LingoLearner
             var rnd = new Random();
             questions = questions.OrderBy(x => rnd.Next()).ToList();
 
-            Question q = questions.ElementAt(0);
-            questions.Remove(q);
-            List<KeyValuePair<string, bool>> l = q.getAnswerSet();
-            foreach (KeyValuePair<string, bool> x in l)
+            
+            if (questions.Count< 1)
             {
-                if (x.Value)
+                try
                 {
-                    ans = x.Key;
+                    using (var tw = new StreamWriter("C:\\Users\\Jacob\\hackohio\\HackOhio2017\\lscore.txt", true))
+                    {
+                        tw.WriteLine(lscore.ToString());
+                        tw.Close();
+                    }
+                    Console.WriteLine(lscore+"\n\n");
+                    Console.ReadLine();
+                    System.Windows.Application.Current.Shutdown();
+                }
+                catch (IOException e)
+                {
+                    Console.WriteLine("You done fucked up " + e);
+                    Console.ReadLine();
+                    System.Windows.Application.Current.Shutdown();
                 }
             }
-            setUI(q);
+            else
+            {
+                Question q = questions.ElementAt(0);
+                questions.Remove(q);
+                List<KeyValuePair<string, bool>> l = q.getAnswerSet();
+                foreach (KeyValuePair<string, bool> x in l)
+                {
+                    if (x.Value)
+                    {
+                        ans = x.Key;
+                    }
+                }
+                setUI(q);
+            }
         }
 
         public void setUI(Question q)
