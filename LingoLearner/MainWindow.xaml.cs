@@ -56,22 +56,39 @@ namespace LingoLearner
         {
             List<Question> qlist = new List<Question>();
 
-            string s = "Hello, how are you today?";
-            List<string> l1 = new List<string>();
-            l1.Add("I am good");
-            KeyValuePair<string, bool> kv1= new KeyValuePair<string, bool>("I am good", true);
+            qlist.Add(makeQ("Hello, I am doing well.", "I am a cherry doughnut.",
+                "The trees are on fire.", "The weather in winter is cold.", 
+                "Hello, how are you today?"));
 
-            Question one = new Question(s, l1, kv1, "german-english");
-            qlist.Add(one);
+            qlist.Add(makeQ("Butterflies are beautiful.", "Yes, I would like to have dinner.",
+                "Hello world is an overly used phrase.", "Yes, it would be nice to learn German",
+                "Would you like to learn German?"));
 
 
             return qlist;
+        }
+
+        public static Question makeQ (string s1, string s2, string s3, string answer, string question)
+        {
+            List <string> l =new  List<string>();
+            l.Add(s1);
+            l.Add(s2);
+            l.Add(s3);
+            l.Add(answer);
+            KeyValuePair<string, bool> kv= new KeyValuePair<string, bool>(answer, true);
+            Question q = new Question(question, l, kv, "german-english");
+
+            return(q);
         }
 
         public void setUI(Question q)
         {
             qbox.Text = q.getQuestionText();
             A1.Content = q.getAnswerSet().ElementAt(0);
+            A2.Content = q.getAnswerSet().ElementAt(1);
+            A3.Content = q.getAnswerSet().ElementAt(2);
+            A4.Content = q.getAnswerSet().ElementAt(3);
+
         }
     }
 }
