@@ -20,22 +20,25 @@ namespace LingoLearner
     /// </summary>
     public partial class MainWindow : Window
     {
-       
+        public List<Question> questions = makeQuestions();
         public string ans;
         public MainWindow()
         {
             
-            List<Question> questions = makeQuestions();
+            
             InitializeComponent();
 
+          
             var rnd = new Random();
             questions = questions.OrderBy(x => rnd.Next()).ToList();
 
             Question q = questions.ElementAt(0);
-
+            questions.Remove(q);
             ans = q.getAnswerPair().Key.ToString();
-            
+
             setUI(q);
+
+
         }
 
         private void A1_Click(object sender, RoutedEventArgs e)
@@ -43,17 +46,17 @@ namespace LingoLearner
             
             if (ans == A1.Content.ToString())
             {
-                A1.Content = "win";
-
+                updateUI(questions);
             }
+            
+            
         }
 
         private void A2_Click(object sender, RoutedEventArgs e)
         {
             if (ans == A2.Content.ToString())
             {
-                A2.Content = "win";
-
+                updateUI(questions);
             }
         }
 
@@ -61,8 +64,7 @@ namespace LingoLearner
         {
             if (ans == A3.Content.ToString())
             {
-                A3.Content = "win";
-
+                updateUI(questions);
             }
         }
 
@@ -70,8 +72,7 @@ namespace LingoLearner
         {
             if (ans == A4.Content.ToString())
             {
-                A4.Content = "win";
-
+                updateUI(questions);
             }
         }
 
@@ -94,13 +95,22 @@ namespace LingoLearner
                 "No, but I really want to visit Germany.", "Have you ever traveled to Germany before?"));
 
             qlist.Add(Question.makeQ("There was also a partridge in a pear tree.", "I can do backflips.", 
-                "I hope to cross the road to get to the other side.", "Yes, I did learn a little something.", 
-                "Thank you for talkng with me today. I hope that you learned something today!"));
+                "I hope to cross the road to get to the other side.","Eggs, toast, and juice please.", 
+                "What would you like to eat?"));
 
 
             return qlist;
         }
 
+        public void updateUI(List<Question> questions)
+        {
+            var rnd = new Random();
+            questions = questions.OrderBy(x => rnd.Next()).ToList();
+
+            Question q = questions.ElementAt(0);
+            questions.Remove(q);
+            setUI(q);
+        }
 
         public void setUI(Question q)
         {
