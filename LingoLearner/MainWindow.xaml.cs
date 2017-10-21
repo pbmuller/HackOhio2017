@@ -52,7 +52,12 @@ namespace LingoLearner
             
             if (ans == A1.Content.ToString())
             {
+                setEnabled(A1, A2, A3, A4);
                 updateUI();
+            }
+            else
+            {
+                A1.IsEnabled = false;
             }
             
             
@@ -62,7 +67,12 @@ namespace LingoLearner
         {
             if (ans == A2.Content.ToString())
             {
+                setEnabled(A1, A2, A3, A4);
                 updateUI();
+            }
+            else
+            {
+                A2.IsEnabled = false;
             }
         }
 
@@ -70,7 +80,12 @@ namespace LingoLearner
         {
             if (ans == A3.Content.ToString())
             {
+                setEnabled(A1, A2, A3, A4);
                 updateUI();
+            }
+            else
+            {
+                A3.IsEnabled = false;
             }
         }
 
@@ -78,7 +93,12 @@ namespace LingoLearner
         {
             if (ans == A4.Content.ToString())
             {
+                setEnabled(A1, A2, A3, A4);
                 updateUI();
+            }
+            else
+            {
+                A4.IsEnabled = false;
             }
         }
 
@@ -106,6 +126,14 @@ namespace LingoLearner
 
 
             return qlist;
+        }
+
+        public void setEnabled(Button A1, Button A2, Button A3, Button A4)
+        {
+            A1.IsEnabled = true;
+            A2.IsEnabled = true;
+            A3.IsEnabled = true;
+            A4.IsEnabled = true;
         }
 
         public void updateUI()
