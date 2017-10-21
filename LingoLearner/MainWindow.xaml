@@ -1,0 +1,17 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="668.969" Width="644.794" Background="Black">
+  <Grid Margin="0,0,-7,-19.667" HorizontalAlignment="Left" Width="645" Height="659" VerticalAlignment="Top">
+    <Button x:Name="A1" Content="A1"  Background="Black" Foreground="ForestGreen" HorizontalAlignment="Left" Height="161" Margin="0,320,0,0" VerticalAlignment="Top" Width="321" Click="A1_Click"/>
+    <Button x:Name="A2" Content="A2"  Background="Black" Foreground="ForestGreen" Height="161" Margin="321,320,10,0" VerticalAlignment="Top" Click="A2_Click"/>
+    <Button x:Name="A3" Content="A3"  Background="Black" Foreground="ForestGreen" HorizontalAlignment="Left" Height="161" Margin="0,481,0,0" VerticalAlignment="Top" Width="321" Click="A3_Click"/>
+    <Button x:Name="A4" Content="A4"  Background="Black" Foreground="ForestGreen" Height="161" Margin="321,481,10,0" VerticalAlignment="Top" Click="A4_Click"/>
+    <TextBlock x:Name="qbox" Foreground="ForestGreen" HorizontalAlignment="Left" Height="319" Margin="0,1,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="635"/>
+
+  </Grid>
+</Window>
