@@ -12,3 +12,10 @@ C:\Users\Jacob\hackohio\HackOhio2017\obj\Debug\LingoLearner.csproj.GenerateResou
 C:\Users\Jacob\hackohio\HackOhio2017\obj\Debug\LingoLearner.csproj.CoreCompileInputs.cache
 C:\Users\Jacob\hackohio\HackOhio2017\obj\Debug\LingoLearner.exe
 C:\Users\Jacob\hackohio\HackOhio2017\obj\Debug\LingoLearner.pdb
+C:\Users\Jacob\hackohio\HackOhio2017\LingoLearner\obj\Debug\LingoLearner.csprojResolveAssemblyReference.cache
+C:\Users\Jacob\hackohio\HackOhio2017\LingoLearner\obj\Debug\MainWindow.g.cs
+C:\Users\Jacob\hackohio\HackOhio2017\LingoLearner\obj\Debug\App.g.cs
+C:\Users\Jacob\hackohio\HackOhio2017\LingoLearner\obj\Debug\LingoLearner_MarkupCompile.cache
+C:\Users\Jacob\hackohio\HackOhio2017\LingoLearner\obj\Debug\LingoLearner_MarkupCompile.lref
+C:\Users\Jacob\hackohio\HackOhio2017\LingoLearner\obj\Debug\LingoLearner.exe
+C:\Users\Jacob\hackohio\HackOhio2017\LingoLearner\obj\Debug\LingoLearner.pdb

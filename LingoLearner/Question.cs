@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LingoLearner
 {
-    public class Question
+    public partial class Question
     {
         // Field
         string questionText;

@@ -61,7 +61,7 @@ namespace LingoLearner
             l1.Add("I am good");
             KeyValuePair<string, bool> kv1= new KeyValuePair<string, bool>("I am good", true);
 
-            Question one = new Question(s, l1, kv1, new Dictionary<string, string>());
+            Question one = new Question(s, l1, kv1, "german-english");
             qlist.Add(one);
 
 
@@ -70,8 +70,8 @@ namespace LingoLearner
 
         public void setUI(Question q)
         {
-            qbox.Text = q.questionText;
-            A1.Content = q.answerSet.ElementAt(0);
+            qbox.Text = q.getQuestionText();
+            A1.Content = q.getAnswerSet().ElementAt(0);
         }
     }
 }
