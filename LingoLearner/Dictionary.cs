@@ -3,65 +3,100 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace LingoLearner
 {
     public class GermanDictionary
     {
         Dictionary<string, string> words;
-
         public GermanDictionary()
         {
-            
-        }
 
+        }
         private void loadDictionaryd()
         {
             this.words = new Dictionary<string, string>();
+            this.words.Add("ich", "I");
+            this.words.Add("bin", "am");
+            this.words.Add("ein", "a");
+            this.words.Add("Kirchkrapfen", "cherry_doughnut");
+            this.words.Add("die Bäume", "the_trees");
+            this.words.Add("sind", "and");
+            this.words.Add("auf", "on");
+            this.words.Add("Feuer", "fire");
+            this.words.Add("das Wetter", "the weather");
+            this.words.Add("im", "in");
+            this.words.Add("Winter", "winter");
+            this.words.Add("ist", "is");
+            this.words.Add("kalt", "cold");
             this.words.Add("hallo", "hello");
-            this.words.Add("wie", "how");
-            this.words.Add("bist", "are");
-            this.words.Add("heute", "today");
-            this.words.Add("du", "you");
-            this.words.Add("Möchtest_du", "would_you_like");
-            this.words.Add("lernen", "learn");
-            this.words.Add("Deutsch", "german");
-            this.words.Add("zu", "to");
-            this.words.Add("sprechen", "speak");
-
-        }
-
-        private List<KeyValuePair<string, string>> german_english_wordlist()
-        {
-            List<KeyValuePair<string, string>> german_english_wordlist = new List<KeyValuePair<string, string>>();
-            german_english_wordlist.Add(new KeyValuePair<string, string>("hallo", "hello"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("wie", "how"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("bist", "are"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("du", "you"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("heute", "today"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("Möchtest_du", "would_you_like"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("lernen", "learn"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("Deutsch", "german"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("zu", "to"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("sprechen", "speak"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("was", "what"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("was_machst_du", "What_do_you_do"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("wenn", "when"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("aufwachst", "wake_up"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("bist_du", "have_you"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("jemals", "ever"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("gereist", "travelled"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("nach_Deutschland", "to_Germany"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("Danke", "thank you"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("für", "for"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("mit", "with"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("mir", "me"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("sprechen", "talking"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("ich", "I"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("hoffe", "hope"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("etwas", "something"));
-            german_english_wordlist.Add(new KeyValuePair<string, string>("gelernt", "learned"));
-            return german_english_wordlist;
+            this.words.Add("machst_gut", "doing_well");
+            this.words.Add("Schmetterling", "Butterflies");
+            this.words.Add("schön", "beautiful");
+            this.words.Add("ja", "yes");
+            this.words.Add("Möchte", "would like");
+            this.words.Add("haben", "to have");
+            this.words.Add("Abendessen", "dinner");
+            this.words.Add("ein", "an");
+            this.words.Add("überlastet", "overly_used");
+            this.words.Add("Phrase", "phrase");
+            this.words.Add("es", "it");
+            this.words.Add("wäre_nett", "Would_be_nice");
+            this.words.Add("lernen", "to learn");
+            this.words.Add("Deutsch", "German");
+            this.words.Add("schlaf", "sleep");
+            this.words.Add("Baum", "tree");
+            this.words.Add("my_dog", "mein_Hund");
+            this.words.Add("gekuschelt", "snuggled");
+            this.words.Add("meine_Katze", "my_cat");
+            this.words.Add("nein", "no");
+            this.words.Add("wir", "we");
+            this.words.Add("tat", "did");
+            this.words.Add("nicht", "not");
+            this.words.Add("anfangen", "start");
+            this.words.Add("das_Feuer", "the_fire");
+            this.words.Add("überprüfen", "check");
+            this.words.Add("mein_telefon", "my_phone");
+            this.words.Add("und", "and");
+            this.words.Add("putzen", "brush");
+            this.words.Add("meine_Zähne", "my_teeth");
+            this.words.Add("was", "what");
+            this.words.Add("machen", "do");
+            this.words.Add("wann", "when");
+            this.words.Add("aufwachen", "wake_up");
+            this.words.Add("die_Erde", "the_earth");
+            this.words.Add("tatsächlich", "actually");
+            this.words.Add("flach", "flat");
+            this.words.Add("habe_nicht", "do_not_have");
+            this.words.Add("Haferbrei", "porridge");
+            this.words.Add("gerne_besuchen", "like_to_visit");
+            this.words.Add("Kanada", "Canada");
+            this.words.Add("aber", "but");
+            this.words.Add("wirklich", "really");
+            this.words.Add("wollen", "want");
+            this.words.Add("besuchen", "to_visit");
+            this.words.Add("Deutschland", "Germany");
+            this.words.Add("jemals", "ever");
+            this.words.Add("gereist_nach", "traveled_to");
+            this.words.Add("vor", "before");
+            this.words.Add("da", "there");
+            this.words.Add("war", "was");
+            this.words.Add("auch", "also");
+            this.words.Add("Rebhuhn", "partridge");
+            this.words.Add("Birnebaum", "pear_tree");
+            this.words.Add("kann", "can");
+            this.words.Add("Rückwärtssalto", "backflips");
+            this.words.Add("hoffe", "hope");
+            this.words.Add("kreuzen", "to cross");
+            this.words.Add("die Straße", "the road");
+            this.words.Add("bekommen", "to get");
+            this.words.Add("andere", "other");
+            this.words.Add("Seite", "side");
+            this.words.Add("Eier", "eggs");
+            this.words.Add("Toast", "toast");
+            this.words.Add("Saft", "juice");
+            this.words.Add("bitte", "please");
+            this.words.Add("mogen", "like");
+            this.words.Add("essen", "to eat");
         }
     }
 }
