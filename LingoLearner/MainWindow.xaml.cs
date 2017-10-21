@@ -29,7 +29,7 @@ namespace LingoLearner
             InitializeComponent();
             Question q = questions.ElementAt(0);
             if (q.getAnswerPair().Key == ans) {
-                //update answer key
+                qbox.Text = "win";
             }
             setUI(q);
             
@@ -76,11 +76,15 @@ namespace LingoLearner
         public void setUI(Question q)
         {
             qbox.Text = q.getQuestionText();
-            A1.Content = q.getAnswerSet().ElementAt(0);
-            A2.Content = q.getAnswerSet().ElementAt(1);
-            A3.Content = q.getAnswerSet().ElementAt(2);
-            A4.Content = q.getAnswerSet().ElementAt(3);
+            List<string> l = q.getAnswerSet();
+            var rnd = new Random();
+            l = l.OrderBy(x => rnd.Next()).ToList();
+            A1.Content = l.ElementAt(0);
+            A2.Content = l.ElementAt(1);
+            A3.Content = l.ElementAt(2);
+            A4.Content = l.ElementAt(3);
 
         }
     }
+
 }
