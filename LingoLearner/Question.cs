@@ -1,52 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace LingoLearner
 {
     public class Question
     {
-        // Field
-        string questionText;
-        List<KeyValuePair<string, bool>> answerSet;
+        private string questionText;
+        private Dictionary<string, bool> answerSet;
+
+        public Question()
+        {
+            this.questionText = "Default Question Text";
+            this.answerSet = new Dictionary<string, bool>();
+
+            this.answerSet.Add("wrong", false);
+            this.answerSet.Add("wrong", false);
+            this.answerSet.Add("wrong", false);
+            this.answerSet.Add("right", true);
+        }
+
+        public Question(string questionText, Dictionary<string, bool> answerSet)
+        {
+            this.questionText = questionText;
+            this.answerSet = answerSet;
+        }
 
         public string getQuestionText()
         {
             return this.questionText;
         }
 
-        public List<KeyValuePair<string, bool>> getAnswerSet()
+        public Dictionary<string, bool> getAnswerSet()
         {
             return this.answerSet;
         }
 
-        public static Question makeQ(string s1, string s2, string s3, string answer, string question)
+        public static Question makeQuestion(string wrongAnswer1, string wrongAnswer2, string wrongAnswer3, string rightAnswer, string questionText)
         {
-            List<KeyValuePair<string, bool>> list = new List<KeyValuePair<string, bool>>();
-            list.Add(new KeyValuePair<string, bool>(s1, false));
-            list.Add(new KeyValuePair<string, bool>(s2, false));
-            list.Add(new KeyValuePair<string, bool>(s3, false));
-            list.Add(new KeyValuePair<string, bool>(answer, true));
-            Question q = new Question(question, list);
-
-            return (q);
+            Dictionary<string, bool> answerSet = new Dictionary<string, bool>();
+            answerSet.Add(wrongAnswer1, false);
+            answerSet.Add(wrongAnswer2, false);
+            answerSet.Add(wrongAnswer3, false);
+            answerSet.Add(rightAnswer, true);
+            return new Question(questionText, answerSet);
         }
-
-        // Constructor that takes no arguments.
-        public Question()
-        {
-            this.questionText = "";
-            this.answerSet = new List<KeyValuePair<string, bool>>();
-        }
-
-        // Constructor that takes one argument.
-        public Question(string questionText, List<KeyValuePair<string, bool>> answerSet)
-        {
-            this.questionText = questionText;
-            this.answerSet = answerSet;
-        }
-
     }
 }
