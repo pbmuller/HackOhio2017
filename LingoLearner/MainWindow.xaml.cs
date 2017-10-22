@@ -28,12 +28,20 @@ namespace LingoLearner
         {
             try
             {
-                StreamReader sr = new StreamReader("C:\\Users\\Jacob\\hackohio\\HackOhio2017\\lscore.txt");
+                string path;
+                path = System.IO.Path.GetDirectoryName(
+                      System.Reflection.Assembly.GetExecutingAssembly().GetName().ToString());
+                path += "\\lscore.txt";
+                StreamReader sr = new StreamReader(path);
                 lscore = Convert.ToInt32(sr.ReadLine());
             }
             catch(IOException e)
             {
-                using (var tw = new StreamWriter("C:\\Users\\Jacob\\hackohio\\HackOhio2017\\lscore.txt", true))
+                string path;
+                path = System.IO.Path.GetDirectoryName(
+                       System.Reflection.Assembly.GetExecutingAssembly().GetName().ToString());
+                path += "\\lscore.txt";
+                using (var tw = new StreamWriter("path", true))
                 {
                     tw.WriteLine("0");
                     tw.Close();
@@ -168,7 +176,11 @@ namespace LingoLearner
             {
                 try
                 {
-                    using (var tw = new StreamWriter("C:\\Users\\Jacob\\hackohio\\HackOhio2017\\lscore.txt", true))
+                    string path;
+                    path = System.IO.Path.GetDirectoryName(
+                           System.Reflection.Assembly.GetExecutingAssembly().GetName().ToString());
+                    path += "\\lscore.txt";
+                    using (var tw = new StreamWriter(path))
                     {
                         tw.WriteLine(lscore.ToString());
                         tw.Close();

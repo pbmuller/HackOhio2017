@@ -3,26 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace LingoLearner
 {
     public class Translator
     {
-        public List<String> translate(int lang_score, Question q, string dict_name)
+        public string translate(int lang_score, Question q)
         {
-            List<String> ans = new List<String>();
-            //split question text and
-            string qstring = q.getQuestionText();
+            GermanDictionary germanDict = new GermanDictionary();
+            string questionText = q.getQuestionText();
             char[] sep = { ' ', ',', ':', '.' };
-            string[] qwords = qstring.Split(sep);
-
+            string[] questionWords = questionText.Split(sep);
             var rnd = new Random();
-            //qwords[rnd];
-            //depending on answer, split answer to change if they're over some translate score
-            List<KeyValuePair<string, bool>> a = q.getAnswerSet();
-
+            Console.WriteLine(questionText);
+            Console.ReadLine();
+            string translatedText = "";
             //list is recompiled string with translations in it
-            return ans;
+            return translatedText;
         }
+        public Translator() { }
     }
 }
