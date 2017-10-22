@@ -24,25 +24,17 @@ namespace LingoLearner
         public static int lscore;
         public List<Question> questions = makeQuestions();
         public string ans;
-        public string fpath;
         public MainWindow()
         {
             try
-            {
-                string path;
-                path = System.IO.Path.GetDirectoryName(
-                      System.Reflection.Assembly.GetExecutingAssembly().GetName().ToString());
-                fpath = path+ "\\lscore.txt";
-                StreamReader sr = new StreamReader(path);
+            {               
+                StreamReader sr = new StreamReader("C:\\Users\\Jacob\\hackohio\\HackOhio2017\\lscore.txt");
                 lscore = Convert.ToInt32(sr.ReadLine());
             }
             catch(IOException e)
             {
-                string path;
-                path = System.IO.Path.GetDirectoryName(
-                       System.Reflection.Assembly.GetExecutingAssembly().GetName().ToString());
-                fpath = path + "\\lscore.txt";
-                using (var tw = new StreamWriter("path", true))
+                
+                using (var tw = new StreamWriter("C:\\Users\\Jacob\\hackohio\\HackOhio2017\\lscore.txt", true))
                 {
                     tw.WriteLine("0");
                     tw.Close();
@@ -56,10 +48,9 @@ namespace LingoLearner
           
             var rnd = new Random();
             questions = questions.OrderBy(x => rnd.Next()).ToList();
-
             Question q = questions.ElementAt(0);
             questions.Remove(q);
-            List<KeyValuePair<string, bool>> l = q.getAnswerSet();
+            Dictionary<string, bool> l = q.getAnswerSet();
             foreach (KeyValuePair<string,bool>x in l){
                 if (x.Value)
                 {
@@ -144,7 +135,7 @@ namespace LingoLearner
             qlist.Add(Question.makeQuestion("I am a cherry_doughnut.", "The_trees_are on fire.",
                 "The_weather in winter is cold.", "Hello, I am doing_well.",
                 "Hello, how are you today?"));
-            t.translate(lscore, qlist[0]);
+            t.translateQuestion(lscore, qlist[0]);
             qlist.Add(Question.makeQuestion("Butterflies are beautiful.", "Yes, I would_like to_eat dinner.",
                 "Hello world is an overly_used phrase.", "Yes, it would_be_nice to_learn German",
                 "Would_you_like to_learn German?"));
@@ -178,7 +169,7 @@ namespace LingoLearner
                 try
                 {
                     
-                    using (var tw = new StreamWriter(fpath))
+                    using (var tw = new StreamWriter("C:\\Users\\Jacob\\hackohio\\HackOhio2017\\lscore.txt"))
                     {
                         tw.WriteLine(lscore.ToString());
                         tw.Close();
@@ -198,7 +189,7 @@ namespace LingoLearner
             {
                 Question q = questions.ElementAt(0);
                 questions.Remove(q);
-                List<KeyValuePair<string, bool>> l = q.getAnswerSet();
+                Dictionary<string, bool> l = q.getAnswerSet();
                 foreach (KeyValuePair<string, bool> x in l)
                 {
                     if (x.Value)
@@ -213,9 +204,9 @@ namespace LingoLearner
         public void setUI(Question q)
         {
             qbox.Text = q.getQuestionText();
-            List<KeyValuePair<string, bool>> l = q.getAnswerSet();
+            Dictionary<string, bool> dict = q.getAnswerSet();
             var rnd = new Random();
-            l = l.OrderBy(x => rnd.Next()).ToList();
+            List<KeyValuePair<string, bool>>l = dict.OrderBy(x => rnd.Next()).ToList();
             A1.Content = l.ElementAt(0).Key;
             A2.Content = l.ElementAt(1).Key;
             A3.Content = l.ElementAt(2).Key;
