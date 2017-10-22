@@ -19,10 +19,7 @@ namespace LingoLearner
             foreach (string answer in q.getAnswerSet().Keys.ToList())
             {
                 translatedAnswers.Add(translate(langScore, answer));
-                Console.WriteLine(translatedAnswers[i]);
-                i++;
             }
-            Console.ReadLine();
 
             return Question.makeQuestion(translatedAnswers[0], translatedAnswers[1],
                 translatedAnswers[2], translatedAnswers[3], questionTextTranslation);
@@ -95,8 +92,6 @@ namespace LingoLearner
             }
 
             string translation = String.Join(" ", words);
-            Console.WriteLine(translation);
-            Console.ReadLine();
 
             //Return the sentence
             return translation;
