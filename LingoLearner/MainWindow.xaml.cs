@@ -59,8 +59,7 @@ namespace LingoLearner
             }
 
             setUI(q);
-            qbox.Text = lscore.ToString();
-
+           
         }
 
         private void A1_Click(object sender, RoutedEventArgs e)
