@@ -201,16 +201,22 @@ namespace LingoLearner
             }
         }
 
+        public static string replaceUnderscore(string s)
+        {
+            string sNoUnders = s.Replace('_', ' ');
+            return sNoUnders;
+        }
+
         public void setUI(Question q)
         {
-            qbox.Text = q.getQuestionText();
+            qbox.Text = replaceUnderscore(q.getQuestionText());
             Dictionary<string, bool> dict = q.getAnswerSet();
             var rnd = new Random();
             List<KeyValuePair<string, bool>>l = dict.OrderBy(x => rnd.Next()).ToList();
-            A1.Content = l.ElementAt(0).Key;
-            A2.Content = l.ElementAt(1).Key;
-            A3.Content = l.ElementAt(2).Key;
-            A4.Content = l.ElementAt(3).Key;
+            A1.Content = replaceUnderscore(l.ElementAt(0).Key);
+            A2.Content = replaceUnderscore(l.ElementAt(1).Key);
+            A3.Content = replaceUnderscore(l.ElementAt(2).Key);
+            A4.Content = replaceUnderscore(l.ElementAt(3).Key);
 
         }
     }
