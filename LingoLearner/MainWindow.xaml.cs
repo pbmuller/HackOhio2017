@@ -30,6 +30,7 @@ namespace LingoLearner
             {               
                 StreamReader sr = new StreamReader("C:\\Users\\Jacob\\hackohio\\HackOhio2017\\lscore.txt");
                 lscore = Convert.ToInt32(sr.ReadLine());
+                sr.Close();
             }
             catch(IOException e)
             {
@@ -259,6 +260,11 @@ namespace LingoLearner
             A2t.Text = replaceUnderscore(l.ElementAt(1).Key);
             A3t.Text = replaceUnderscore(l.ElementAt(2).Key);
             A4t.Text = replaceUnderscore(l.ElementAt(3).Key);
+            using (var tw = new StreamWriter("C:\\Users\\Jacob\\hackohio\\HackOhio2017\\lscore.txt"))
+            {
+                tw.WriteLine(lscore.ToString());
+                tw.Close();
+            }
 
         }
     }
