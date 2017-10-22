@@ -22,20 +22,20 @@ namespace LingoLearner
     public partial class MainWindow : Window
     {
         public static int lscore;
-        public List<Question> questions = makeQuestions();
+        public List<Question> questions;
         public string ans;
         public MainWindow()
         {
             try
             {               
-                StreamReader sr = new StreamReader("C:\\Users\\Jacob\\hackohio\\HackOhio2017\\lscore.txt");
+                StreamReader sr = new StreamReader("C:\\hack\\lscore.txt");
                 lscore = Convert.ToInt32(sr.ReadLine());
                 sr.Close();
             }
             catch(IOException e)
             {
-                
-                using (var tw = new StreamWriter("C:\\Users\\Jacob\\hackohio\\HackOhio2017\\lscore.txt", true))
+                DirectoryInfo di = Directory.CreateDirectory("C:\\hack");
+                using (var tw = new StreamWriter("C:\\hack\\lscore.txt", true))
                 {
                     tw.WriteLine("0");
                     tw.Close();
@@ -43,10 +43,10 @@ namespace LingoLearner
 
                 // System.Windows.Application.Current.Shutdown();
             }
-            
+            questions = makeQuestions();
             InitializeComponent();
 
-          
+            
             var rnd = new Random();
             questions = questions.OrderBy(x => rnd.Next()).ToList();
 
@@ -209,7 +209,7 @@ namespace LingoLearner
                 try
                 {
                     
-                    using (var tw = new StreamWriter("C:\\Users\\Jacob\\hackohio\\HackOhio2017\\lscore.txt"))
+                    using (var tw = new StreamWriter("C:\\hack\\lscore.txt"))
                     {
                         tw.WriteLine(lscore.ToString());
                         tw.Close();
