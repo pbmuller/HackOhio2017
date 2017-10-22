@@ -1,18 +1,9 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LingoLearner
 {
@@ -252,7 +243,7 @@ namespace LingoLearner
 
         public void setUI(Question q)
         {
-            qbox.Text = replaceUnderscore(q.getQuestionText());
+            qbox.Text = replaceUnderscore(q.getQuestionText())+"?";
             Dictionary<string, bool> dict = q.getAnswerSet();
             var rnd = new Random();
             List<KeyValuePair<string, bool>>l = dict.OrderBy(x => rnd.Next()).ToList();
@@ -260,7 +251,7 @@ namespace LingoLearner
             A2t.Text = replaceUnderscore(l.ElementAt(1).Key);
             A3t.Text = replaceUnderscore(l.ElementAt(2).Key);
             A4t.Text = replaceUnderscore(l.ElementAt(3).Key);
-            using (var tw = new StreamWriter("C:\\Users\\Jacob\\hackohio\\HackOhio2017\\lscore.txt"))
+            using (var tw = new StreamWriter("C:\\hack\\lscore.txt"))
             {
                 tw.WriteLine(lscore.ToString());
                 tw.Close();
