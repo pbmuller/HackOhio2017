@@ -141,20 +141,20 @@ namespace LingoLearner
         {
             Translator t = new Translator();
             List<Question> qlist = new List<Question>();
-            qlist.Add(Question.makeQ("I am a cherry_doughnut.", "The_trees are on fire.",
+            qlist.Add(Question.makeQuestion("I am a cherry_doughnut.", "The_trees_are on fire.",
                 "The_weather in winter is cold.", "Hello, I am doing_well.",
                 "Hello, how are you today?"));
             t.translate(lscore, qlist[0]);
-            qlist.Add(Question.makeQ("Butterflies are beautiful.", "Yes, I would_like to have dinner.",
+            qlist.Add(Question.makeQuestion("Butterflies are beautiful.", "Yes, I would_like to_eat dinner.",
                 "Hello world is an overly_used phrase.", "Yes, it would_be_nice to_learn German",
-                "Would_you_like to learn German?"));
-            qlist.Add(Question.makeQ("Sleep in a tree.", "My_dog snuggled my_cat.", "No, we didn't start the_fire.",
-                "Check my_phone and brush my_teeth.", "What do you do when you wake up?"));
-            qlist.Add(Question.makeQ("The_earth is actually flat.", "I don't have any pouridge.", "I like_to_visit Canada.",
-                "No, but I really want to visit Germany.", "Have you ever traveled to Germany before?"));
-            qlist.Add(Question.makeQ("There was also a partridge in a pear_tree.", "I can do backflips.",
-                "I hope to cross the road to get to the other side.", "Eggs, toast, and juice please.",
-                "What would_you_like to eat?"));
+                "Would_you_like to_learn German?"));
+            qlist.Add(Question.makeQuestion("Sleep in a tree.", "My_dog snuggled my_cat.", "No, we did not start the_fire.",
+                "Check my_phone and brush my_teeth.", "What do_you_do when you wake_up?"));
+            qlist.Add(Question.makeQuestion("The_earth is actually flat.", "I do_not_have any porridge.", "I like_to_visit Canada.",
+                "No, but I would like_to_visit Germany.", "Have you ever traveled_to Germany before?"));
+            qlist.Add(Question.makeQuestion("There was also a partridge in a pear_tree.", "I can do backflips.",
+                "I hope to_cross the_road to get to the other side.", "Eggs with toast and juice please.",
+                "What would_you_like to_eat?"));
 
             return qlist;
         }
