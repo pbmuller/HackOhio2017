@@ -72,16 +72,24 @@ namespace LingoLearner
         private void A1_Click(object sender, RoutedEventArgs e)
         {
             
-            if (ans == A1.Content.ToString())
+            if (ans == A1t.Text.ToString())
             {
                 setEnabled(A1, A2, A3, A4);
                 lscore += 5;
+                if (lscore > 100)
+                {
+                    lscore = 100;
+                }
                 updateUI();
             }
             else
             {
                A1.IsEnabled = false;
-                lscore -= 2;
+                lscore -= 3;
+                if (lscore < 0)
+                {
+                    lscore = 0;
+                }
             }
             
             
@@ -89,48 +97,72 @@ namespace LingoLearner
 
         private void A2_Click(object sender, RoutedEventArgs e)
         {
-            if (ans == A2.Content.ToString())
+            if (ans == A2t.Text.ToString())
             {
                 setEnabled(A1, A2, A3, A4);
                 lscore += 5;
+                if (lscore > 100)
+                {
+                    lscore = 100;
+                }
                 updateUI();
             }
             else
             {
                 A2.IsEnabled = false;
-                lscore -= 2;
+                lscore -= 3;
+                if (lscore < 0)
+                {
+                    lscore = 0;
+                }
             }
         }
 
         private void A3_Click(object sender, RoutedEventArgs e)
         {
             
-            if (ans == A3.Content.ToString())
+            if (ans == A3t.Text.ToString())
             {
                 setEnabled(A1, A2, A3, A4);
                 lscore += 5;
+                if (lscore > 100)
+                {
+                    lscore = 100;
+                }
                 updateUI();
-                
+                                
             }
             else
             {
                 A3.IsEnabled = false;
-                lscore -= 2;
+                lscore -= 3;
+                if (lscore < 0)
+                {
+                    lscore = 0;
+                }
             }
         }
 
         private void A4_Click(object sender, RoutedEventArgs e)
         {
-            if (ans == A4.Content.ToString())
+            if (ans == A4t.Text.ToString())
             {
                 setEnabled(A1, A2, A3, A4);
                 lscore += 5;
+                if (lscore > 100)
+                {
+                    lscore = 100;
+                }
                 updateUI();
             }
             else
             {
                 A4.IsEnabled = false;
-                lscore -= 2;
+                lscore -= 3;
+                if (lscore < 0)
+                {
+                    lscore = 0;
+                }
             }
         }
 
@@ -183,8 +215,8 @@ namespace LingoLearner
                     }
                     Console.WriteLine(lscore+"\n\n");
                     Console.ReadLine();
-                    System.Windows.Application.Current.Shutdown();
-
+                    //System.Windows.Application.Current.Shutdown();
+                    questions = makeQuestions();
                 }
                 catch (IOException e)
                 {
@@ -223,10 +255,10 @@ namespace LingoLearner
             Dictionary<string, bool> dict = q.getAnswerSet();
             var rnd = new Random();
             List<KeyValuePair<string, bool>>l = dict.OrderBy(x => rnd.Next()).ToList();
-            A1.Content = replaceUnderscore(l.ElementAt(0).Key);
-            A2.Content = replaceUnderscore(l.ElementAt(1).Key);
-            A3.Content = replaceUnderscore(l.ElementAt(2).Key);
-            A4.Content = replaceUnderscore(l.ElementAt(3).Key);
+            A1t.Text = replaceUnderscore(l.ElementAt(0).Key);
+            A2t.Text = replaceUnderscore(l.ElementAt(1).Key);
+            A3t.Text = replaceUnderscore(l.ElementAt(2).Key);
+            A4t.Text = replaceUnderscore(l.ElementAt(3).Key);
 
         }
     }
