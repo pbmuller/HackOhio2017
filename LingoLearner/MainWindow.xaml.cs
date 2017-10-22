@@ -24,6 +24,7 @@ namespace LingoLearner
         public static int lscore;
         public List<Question> questions = makeQuestions();
         public string ans;
+        public string fpath;
         public MainWindow()
         {
             try
@@ -31,7 +32,7 @@ namespace LingoLearner
                 string path;
                 path = System.IO.Path.GetDirectoryName(
                       System.Reflection.Assembly.GetExecutingAssembly().GetName().ToString());
-                path += "\\lscore.txt";
+                fpath = path+ "\\lscore.txt";
                 StreamReader sr = new StreamReader(path);
                 lscore = Convert.ToInt32(sr.ReadLine());
             }
@@ -40,7 +41,7 @@ namespace LingoLearner
                 string path;
                 path = System.IO.Path.GetDirectoryName(
                        System.Reflection.Assembly.GetExecutingAssembly().GetName().ToString());
-                path += "\\lscore.txt";
+                fpath = path + "\\lscore.txt";
                 using (var tw = new StreamWriter("path", true))
                 {
                     tw.WriteLine("0");
@@ -143,7 +144,7 @@ namespace LingoLearner
             qlist.Add(Question.makeQ("I am a cherry_doughnut.", "The_trees are on fire.",
                 "The_weather in winter is cold.", "Hello, I am doing_well.",
                 "Hello, how are you today?"));
-            t.translate(lscore, qlist[0],"german-english");
+            t.translate(lscore, qlist[0]);
             qlist.Add(Question.makeQ("Butterflies are beautiful.", "Yes, I would_like to have dinner.",
                 "Hello world is an overly_used phrase.", "Yes, it would_be_nice to_learn German",
                 "Would_you_like to learn German?"));
@@ -176,11 +177,8 @@ namespace LingoLearner
             {
                 try
                 {
-                    string path;
-                    path = System.IO.Path.GetDirectoryName(
-                           System.Reflection.Assembly.GetExecutingAssembly().GetName().ToString());
-                    path += "\\lscore.txt";
-                    using (var tw = new StreamWriter(path))
+                    
+                    using (var tw = new StreamWriter(fpath))
                     {
                         tw.WriteLine(lscore.ToString());
                         tw.Close();
