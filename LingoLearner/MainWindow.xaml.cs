@@ -48,13 +48,20 @@ namespace LingoLearner
           
             var rnd = new Random();
             questions = questions.OrderBy(x => rnd.Next()).ToList();
+
+
             Question q = questions.ElementAt(0);
             questions.Remove(q);
+
             Dictionary<string, bool> l = q.getAnswerSet();
             foreach (KeyValuePair<string,bool>x in l){
                 if (x.Value)
                 {
+                    
                     ans = x.Key;
+                    ans = replaceUnderscore(ans);
+                    Console.WriteLine(x.Key);
+                    Console.ReadLine();
                 }
             }
 
@@ -73,7 +80,7 @@ namespace LingoLearner
             }
             else
             {
-                A1.IsEnabled = false;
+               A1.IsEnabled = false;
                 lscore -= 2;
             }
             
@@ -97,6 +104,7 @@ namespace LingoLearner
 
         private void A3_Click(object sender, RoutedEventArgs e)
         {
+            
             if (ans == A3.Content.ToString())
             {
                 setEnabled(A1, A2, A3, A4);
@@ -135,7 +143,6 @@ namespace LingoLearner
             qlist.Add(t.translateQuestion(lscore, Question.makeQuestion("I am a cherry_doughnut.", "The_trees_are on fire.",
                 "The_weather in winter is cold.", "Hello, I am doing_well.",
                 "Hello, how are you today?")));
-            t.translateQuestion(lscore, qlist[0]);
             qlist.Add(t.translateQuestion(lscore, Question.makeQuestion("Butterflies are beautiful.", "Yes, I would_like to_eat dinner.",
                 "Hello world is an overly_used phrase.", "Yes, it would_be_nice to_learn German",
                 "Would_you_like to_learn German?")));
@@ -177,6 +184,7 @@ namespace LingoLearner
                     Console.WriteLine(lscore+"\n\n");
                     Console.ReadLine();
                     System.Windows.Application.Current.Shutdown();
+
                 }
                 catch (IOException e)
                 {
@@ -190,11 +198,13 @@ namespace LingoLearner
                 Question q = questions.ElementAt(0);
                 questions.Remove(q);
                 Dictionary<string, bool> l = q.getAnswerSet();
+                
                 foreach (KeyValuePair<string, bool> x in l)
                 {
                     if (x.Value)
                     {
                         ans = x.Key;
+                        ans = replaceUnderscore(ans);
                     }
                 }
                 setUI(q);
