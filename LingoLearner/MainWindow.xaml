@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LingoLearner"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="668.969" Width="644.794" Background="Black">
+        Title="LingoLearner" Height="668.969" Width="644.794" Background="Black">
 
     <Grid Margin="0,0,-7,-19.667" HorizontalAlignment="Stretch" Width="645" Height="659" VerticalAlignment="Stretch">
         <Button x:Name="A1"   Background="Black"  Foreground="ForestGreen" HorizontalAlignment="Stretch" Height="161" Margin="0,320,324,178" Click="A1_Click" FontFamily="Arial" FontSize="15">

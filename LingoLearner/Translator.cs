@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
+using System.Xml.Linq;
+using Google.Cloud.Translation.V2;
+
+
 namespace LingoLearner
 {
     public class Translator
@@ -10,10 +14,13 @@ namespace LingoLearner
         private Char[] separators = { ' ', ',', '.', '!', '?', ';' };
         GermanDictionary germanDictionary = new GermanDictionary();
 
+        
+
         public Question translateQuestion(int langScore, Question q)
         {
             string questionTextTranslation = translate(langScore, q.getQuestionText());
 
+            
             List<string> translatedAnswers = new List<string>();
             int i = 0;
             foreach (string answer in q.getAnswerSet().Keys.ToList())
@@ -24,7 +31,6 @@ namespace LingoLearner
             return Question.makeQuestion(translatedAnswers[0], translatedAnswers[1],
                 translatedAnswers[2], translatedAnswers[3], questionTextTranslation);
         }
-
         public string translate(int langScore, string sentence)
         {
             //Need to split this string into words
@@ -82,12 +88,13 @@ namespace LingoLearner
                 string englishWord = words[index];
                 try
                 {
-                    string germanWord = germanDictionary.words[englishWord.ToLower()];
+                    //string germanWord = germanDictionary.words[englishWord.ToLower()];
+                    string germanWord = GetTranslatedText(englishWord);
                     words[index] = germanWord;
                 }
                 catch
                 {
-                    Console.WriteLine("Could find the English Word " + englishWord);
+                   // Console.WriteLine("Could find the English Word " + englishWord);
                 }
             }
 
@@ -95,6 +102,28 @@ namespace LingoLearner
 
             //Return the sentence
             return translation;
+        }
+
+
+        public string GetTranslatedText(string text)
+        {
+            
+            //Console.OutputEncoding = System.Text.Encoding.Unicode;
+            TranslationClient client = TranslationClient.Create();
+            try
+            {
+               
+                var response = client.TranslateText(text, "de", "en");
+                return response.TranslatedText;
+                
+
+            }
+            catch(InvalidOperationException w)
+            {
+                Console.WriteLine("what the actual fuck "+ w);
+                Console.ReadLine();
+            }
+            return text;
         }
     }
 }
