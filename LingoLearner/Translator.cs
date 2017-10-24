@@ -12,26 +12,24 @@ namespace LingoLearner
     public class Translator
     {
         private Char[] separators = { ' ', ',', '.', '!', '?', ';' };
-        GermanDictionary germanDictionary = new GermanDictionary();
+                
 
-        
-
-        public Question translateQuestion(int langScore, Question q)
+        public Question translateQuestion(int langScore, string langCode, Question q)
         {
-            string questionTextTranslation = translate(langScore, q.getQuestionText());
+            string questionTextTranslation = translate(langScore, q.getQuestionText(), langCode);
 
             
             List<string> translatedAnswers = new List<string>();
-            int i = 0;
+           
             foreach (string answer in q.getAnswerSet().Keys.ToList())
             {
-                translatedAnswers.Add(translate(langScore, answer));
+                translatedAnswers.Add(translate(langScore, answer, langCode));
             }
 
             return Question.makeQuestion(translatedAnswers[0], translatedAnswers[1],
                 translatedAnswers[2], translatedAnswers[3], questionTextTranslation);
         }
-        public string translate(int langScore, string sentence)
+        public string translate(int langScore, string sentence, string langCode)
         {
             //Need to split this string into words
             List<string> words = sentence.Split(separators, StringSplitOptions.RemoveEmptyEntries).ToList();
@@ -88,13 +86,12 @@ namespace LingoLearner
                 string englishWord = words[index];
                 try
                 {
-                    //string germanWord = germanDictionary.words[englishWord.ToLower()];
-                    string germanWord = GetTranslatedText(englishWord);
-                    words[index] = germanWord;
+                    string transWord = GetTranslatedText(englishWord, langCode);
+                    words[index] = transWord;
                 }
                 catch
                 {
-                   // Console.WriteLine("Could find the English Word " + englishWord);
+                   Console.WriteLine("Could find the English Word " + englishWord);
                 }
             }
 
@@ -105,25 +102,13 @@ namespace LingoLearner
         }
 
 
-        public string GetTranslatedText(string text)
-        {
-            
+        public string GetTranslatedText(string text, string langCode)
+        {            
             //Console.OutputEncoding = System.Text.Encoding.Unicode;
-            TranslationClient client = TranslationClient.Create();
-            try
-            {
-               
-                var response = client.TranslateText(text, "de", "en");
-                return response.TranslatedText;
-                
-
-            }
-            catch(InvalidOperationException w)
-            {
-                Console.WriteLine("what the actual fuck "+ w);
-                Console.ReadLine();
-            }
-            return text;
+            TranslationClient client = TranslationClient.Create();              
+            var response = client.TranslateText(text, langCode, "en");
+            return response.TranslatedText;
+   
         }
     }
 }

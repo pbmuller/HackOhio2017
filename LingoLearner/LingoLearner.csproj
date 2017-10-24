@@ -102,7 +102,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Translator.cs" />
-    <Compile Include="Dictionary.cs" />
     <Compile Include="Question.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
