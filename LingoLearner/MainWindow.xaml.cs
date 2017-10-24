@@ -168,7 +168,7 @@ namespace LingoLearner
         {
             string s = LanguageSel.Text.ToString();
             
-                langCode = langDictionary[s];
+                langCode = langDictionary[s.Replace(" ","")];
             
             Console.WriteLine(langCode);
             Console.ReadLine();
